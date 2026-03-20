@@ -33,10 +33,6 @@ dropZone.addEventListener("drop", (e) => {
     manejarArchivo(file);
 });
 
-// CLICK → abre selector
-dropZone.addEventListener("click", () => {
-    inputFile.click();
-});
 
 // INPUT FILE
 inputFile.addEventListener("change", (e) => {
@@ -61,7 +57,7 @@ function manejarArchivo(file) {
 
     // Simulación de carga
     setTimeout(() => {
-        estado.textContent = "Listo ✅";
+        estado.textContent = "Listo";
     }, 800);
 
     Filestatus = true
@@ -91,10 +87,10 @@ btnEnviar.addEventListener("click", (e) => {
     .then(res => res.text())
     .then(data => {
         console.log("Respuesta:", data);
-        alert("Archivo enviado correctamente ✅");
+        alert("Archivo enviado correctamente");
     })
     .catch(err => {
         console.error(err);
-        alert("Error al enviar ❌");
+        alert("Error al enviar");
     });
 });

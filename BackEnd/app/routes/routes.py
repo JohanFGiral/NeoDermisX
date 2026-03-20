@@ -24,4 +24,4 @@ def upload():
 
     archivo.save(ruta)
 
-    return "Archivo guardado correctamente ✅"
+    return "Archivo guardado correctamente"
