@@ -1,7 +1,3 @@
-#Convertir CSV y imagenes en un dataset listo
-
-# data.py
-
 import pandas as pd
 import tensorflow as tf
 import os

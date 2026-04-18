@@ -5,8 +5,7 @@ from tensorflow.keras.applications.efficientnet import preprocess_input
 from tensorflow.keras.preprocessing import image
 import pandas as pd
 
-# 📦 cargar modelo
-model = load_model("skin_cancer_model9.h5")
+model = load_model("NeoDermisXV1.h5")
 
 df = pd.read_csv(r"A:\IA deteccion de cancer\NeoDermisX\IA\Dataset\val\data_val_balanceado.csv")
 imgid=df["image_id"]
@@ -22,7 +21,7 @@ for i in range(len(imgid)):
     print("Predicción (probabilidades):", prediction)
     
     # Elegir la clase con mayor probabilidad
-    pred_class = np.argmax(prediction)  # 0 = benign, 1 = malignant
+    pred_class = np.argmax(prediction)  # 0 = benigno 1 = maligno
     prob = prediction[0][pred_class]   # la probabilidad de la clase predicha
     
     if pred_class == 0:
