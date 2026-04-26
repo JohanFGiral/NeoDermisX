@@ -3,6 +3,9 @@ from flask import request
 import time
 import os
 from werkzeug.utils import secure_filename
+from app.modules.ia_processing import procesar
+from flask import jsonify
+
 main = Blueprint('main',__name__)
 
 @main.route("/")
@@ -23,5 +26,14 @@ def upload():
     ruta = os.path.join(carpeta, nombre)
 
     archivo.save(ruta)
+    
+    try:
+        pred, prob = procesar(ruta)
+    finally:
+        if os.path.exists(ruta):
+            os.remove(ruta)
 
-    return "Archivo guardado correctamente"
+    return jsonify({
+        "prediccion": pred,
+        "probabilidad": prob
+    })

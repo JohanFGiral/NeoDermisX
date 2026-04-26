@@ -5,7 +5,7 @@ from tensorflow.keras.applications.efficientnet import preprocess_input
 from tensorflow.keras.preprocessing import image
 import pandas as pd
 
-model = load_model("NeoDermisXV1.h5")
+model = load_model(r"A:\IA deteccion de cancer\NeoDermisX\NeoDermisXV1.h5")
 
 df = pd.read_csv(r"A:\IA deteccion de cancer\NeoDermisX\IA\Dataset\val\data_val_balanceado.csv")
 imgid=df["image_id"]
@@ -35,5 +35,5 @@ for i in resultados:
 print(f"CSV cargado: {len(df)} registros encontrados")
 
 df_resultados = pd.DataFrame(resultados, columns=["image_id", "label_real", "prediccion_IA", "prob_maligno"])
-df_resultados.to_csv(r"a:\IA deteccion de cancer\NeoDermisX\IA\Dataset\val\resultados_predicciones_modelo9.csv", index=False)
+df_resultados.to_csv(r"a:\IA deteccion de cancer\NeoDermisX\IA\Dataset\val\resultados_predicciones_modelo10.csv", index=False)
 print("Resultados guardados en CSV")
